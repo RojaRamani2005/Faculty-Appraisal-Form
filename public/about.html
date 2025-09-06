@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About - Faculty Appraisal System</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #f8f9fa;
+      margin: 0;
+      padding: 0;
+    }
+    .navbar {
+      background-color: #007bff;
+    }
+    .navbar-brand, .nav-link {
+      color: white !important;
+    }
+    .header {
+      padding: 60px 30px;
+      color: white;
+      text-align: center;
+      background-image: url('https://images.unsplash.com/photo-1603575448365-d86f98d556b0?auto=format&fit=crop&w=1600&q=80');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      position: relative;
+    }
+    .header::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0, 0, 0, 0.5); /* Dark overlay */
+    }
+    .header h1,
+    .header p {
+      position: relative;
+      z-index: 1;
+    }
+    .section {
+      padding: 40px 20px;
+    }
+    h3 {
+      color: #007bff;
+    }
+    footer {
+      background: #343a40;
+      color: white;
+      text-align: center;
+      padding: 15px;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg">
+  <div class="container">
+    <a class="navbar-brand" href="#">Faculty Appraisal</a>
+    <div class="ml-auto">
+      <a class="btn btn-light mr-2 btn-login" href="role-select.html">Sign In</a>
+      <a class="btn btn-outline-light btn-register" href="role-select.html">Sign Up</a>
+    </div>
+  </div>
+</nav>
+
+<div class="header">
+  <h1>Welcome to the Faculty Appraisal System</h1>
+  <p>Evaluate. Improve. Grow.</p>
+</div>
+
+<div class="container">
+  <div class="section">
+    <h3>Purpose of the System</h3>
+    <p>The Faculty Appraisal System is a comprehensive digital platform designed to evaluate teaching staff fairly and consistently. It promotes academic excellence by providing meaningful feedback, fostering self-improvement, and aligning faculty goals with institutional objectives.</p>
+  </div>
+
+  <div class="section">
+    <h3>Key Features</h3>
+    <ul>
+      <li>✅ Faculty self-assessments to reflect on performance</li>
+      <li>✅ Anonymous student evaluations based on teaching effectiveness</li>
+      <li>✅ Peer evaluations to ensure collaborative review</li>
+      <li>✅ Admin-controlled question management and evaluation status tracking</li>
+      <li>✅ Subject and class management for structured evaluation</li>
+      <li>✅ Customizable questionnaires with rating systems</li>
+      <li>✅ Dashboard analytics showing faculty, students, and user statistics</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h3>Why This System Matters</h3>
+    <p>Transparency in performance evaluations is essential for institutional integrity. This system bridges gaps between students, faculty, and administrators by creating a clear, unbiased process for performance review. It helps institutions promote deserving faculty, identify improvement areas, and ensure quality education standards.</p>
+  </div>
+
+  <div class="section">
+    <h3>Who Can Use This Platform?</h3>
+    <ul>
+      <li><strong>Students:</strong> Provide feedback on faculty members based on classroom experience.</li>
+      <li><strong>Faculty:</strong> Review self-assessment and peer feedback to improve teaching methods.</li>
+      <li><strong>Admin:</strong> Manage users, questions, evaluation status, and system statistics.</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h3>Get Started</h3>
+    <p>Join us in enhancing educational quality. <a href="role-select.html" class="btn-register">Create an account</a> or <a href="role-select.html" class="btn-login">log in</a> to begin evaluating and growing with us.</p>
+  </div>
+</div>
+
+<footer>
+  <p>&copy; 2025 Faculty Appraisal System | Empowering Academic Excellence</p>
+</footer>
+
+<script>
+  document.querySelectorAll('.btn-login').forEach(btn => {
+    btn.addEventListener('click', () => sessionStorage.setItem('auth-action', 'login'));
+  });
+  document.querySelectorAll('.btn-register').forEach(btn => {
+    btn.addEventListener('click', () => sessionStorage.setItem('auth-action', 'register'));
+  });
+</script>
+
+</body>
+</html>
