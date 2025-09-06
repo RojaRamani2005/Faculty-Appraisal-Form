@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Dashboard - Faculty Appraisal</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"/>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #f8f9fa;
+      margin: 0;
+    }
+    .sidebar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 240px;
+      height: 100vh;
+      background-color: #007bff;
+      color: white;
+      padding-top: 60px;
+    }
+    .sidebar h5 {
+      text-align: center;
+      margin-bottom: 1rem;
+      font-weight: bold;
+    }
+    .sidebar a {
+      display: block;
+      padding: 12px 20px;
+      color: white;
+      text-decoration: none;
+      transition: background 0.3s;
+    }
+    .sidebar a:hover {
+      background-color: rgba(255,255,255,0.15);
+    }
+    .topbar {
+      margin-left: 240px;
+      height: 60px;
+      background-color: #ffffff;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 20px;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    .main-content {
+      margin-left: 240px;
+      padding: 30px;
+    }
+    .card {
+      background: #ffffff;
+      border-radius: 12px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+      padding: 25px;
+    }
+    .btn-sm {
+      margin: 0 4px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="sidebar">
+  <h5>Admin Panel</h5>
+  <a href="#">Dashboard</a>
+  <a href="#">Subjects</a>
+  <a href="#">Classes</a>
+  <a href="#">Academic Year</a>
+  <a href="#">Questionnaires</a>
+  <a href="#">Evaluation Criteria</a>
+  <a href="#">Faculties</a>
+  <a href="#">Students</a>
+  <a href="#">Evaluation Report</a>
+  <a href="#">Users</a>
+</div>
+
+<div class="topbar">
+  <div><strong>Faculty Evaluation System</strong></div>
+  <div>
+    <span>Administrator 👤</span>
+    <button onclick="logout()" class="btn btn-sm btn-outline-primary ml-3">Logout</button>
+  </div>
+</div>
+
+<div class="main-content">
+  <div class="card">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+      <h4 class="mb-0">Class List</h4>
+      <button class="btn btn-primary">+ Add New</button>
+    </div>
+    <table class="table table-bordered table-hover">
+      <thead class="thead-dark">
+        <tr>
+          <th>#</th>
+          <th>Class</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody id="classList">
+        <tr>
+          <td>1</td>
+          <td>BSIT 1-A</td>
+          <td>
+            <button class="btn btn-sm btn-outline-primary">✏️</button>
+            <button class="btn btn-sm btn-outline-danger">🗑️</button>
+          </td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>BSIT 1-B</td>
+          <td>
+            <button class="btn btn-sm btn-outline-primary">✏️</button>
+            <button class="btn btn-sm btn-outline-danger">🗑️</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<script>
+  const firebaseConfig = {
+    apiKey: "AIzaSyC-9wBDAf4RAfFApK5Xg0RAK1gb0CNnbbw",
+    authDomain: "faculty-appraisal-form.firebaseapp.com",
+    projectId: "faculty-appraisal-form",
+    storageBucket: "faculty-appraisal-form.appspot.com",
+    messagingSenderId: "870569236149",
+    appId: "1:870569236149:web:5c45e3239db961edf090fc"
+  };
+
+  firebase.initializeApp(firebaseConfig);
+  const auth = firebase.auth();
+
+  function logout() {
+    auth.signOut()
+      .then(() => {
+        alert("Logged out successfully");
+        window.location.href = "index.html";
+      })
+      .catch(error => {
+        alert("Logout failed: " + error.message);
+      });
+  }
+</script>
+
+</body>
+</html>
