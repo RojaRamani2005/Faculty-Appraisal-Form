@@ -1,0 +1,114 @@
+<!-- role-select.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Select Role | Faculty Appraisal</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <style>
+    body {
+      background: linear-gradient(to right, #007bff, #00c6ff);
+      font-family: 'Segoe UI', sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .modal-content {
+      padding: 30px;
+      border-radius: 20px;
+      background-color: #ffffff;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+    }
+    .role-option {
+      cursor: pointer;
+      padding: 15px;
+      border: 2px solid #007bff;
+      border-radius: 10px;
+      text-align: center;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      background-color: white;
+    }
+    .role-option:hover {
+      background-color: #007bff;
+      color: white;
+      transform: scale(1.05);
+    }
+    .modal-header, .modal-body, .modal-footer {
+      text-align: center;
+    }
+    .modal-title {
+      font-weight: 600;
+      font-size: 1.4rem;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Role Selection Modal -->
+<div class="modal show" tabindex="-1" style="display:block; background: rgba(0,0,0,0.6);">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Select Your Role</h5>
+      </div>
+      <div class="modal-body">
+        <p class="mb-4">Please choose your role:</p>
+        <div class="row g-3">
+          <div class="col-12 col-md-6">
+            <div class="role-option" onclick="redirect('faculty')">
+              <i class="fas fa-chalkboard-teacher fa-2x mb-2"></i><br />Faculty
+            </div>
+          </div>
+          <div class="col-12 col-md-6">
+            <div class="role-option" onclick="redirect('admin')">
+              <i class="fas fa-user-shield fa-2x mb-2"></i><br />Admin
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary w-100" onclick="goBack()">Back to Home</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  const action = sessionStorage.getItem('auth-action');
+
+  function redirect(role) {
+    if (!action) {
+      alert('No action found. Redirecting to homepage.');
+      window.location.href = 'about.html';
+      return;
+    }
+
+    // Redirect logic based on action + role
+    if (action === "register") {
+      if (role === "faculty") {
+        window.location.href = "register.html"; 
+      } else if (role === "admin") {
+        window.location.href = "register.html"; // or create register-admin.html if needed
+      }
+    } else if (action === "login") {
+      if (role === "faculty") {
+        window.location.href = "login.html";
+      } else if (role === "admin") {
+        window.location.href = "login.html"; // or create login-admin.html if needed
+      }
+    }
+  }
+
+  function goBack() {
+    window.location.href = 'about.html';
+  }
+</script>
+
+
+</body>
+</html>
